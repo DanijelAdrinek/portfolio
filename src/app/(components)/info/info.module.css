@@ -1,0 +1,27 @@
+.intro {
+    /* Variables */
+
+    --title-text-size: 2rem;
+    --symbol-size: 3rem;
+    --symbol-color: ;
+
+    /* Code */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-primary);
+    border-radius: 15px;
+    background-color: var(--secondary-color);
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: var(--title-text-size);
+}
+
+.title > span {
+    font-size: var(--symbol-size);
+    color: #dede8f;
+}
