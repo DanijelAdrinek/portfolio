@@ -3,7 +3,7 @@ import "./globals.css";
 
 import { Space_Mono } from 'next/font/google';
 
-const vt323 = Space_Mono({ subsets: ['latin'], weight: '400' });
+const space_mono = Space_Mono({ subsets: ['latin'], weight: '400' });
 
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={vt323.className}>
+      <body className={space_mono.className}>
         {children}
       </body>
     </html>

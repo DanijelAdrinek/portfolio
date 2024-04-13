@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #212529;
+  --background-color: #04071a;
   --secondary-color: #495057;
   --tertiary-color: #535C91;
   --quaternary-color: #9290C3;
@@ -15,7 +15,7 @@ html, body {
 
 body {
   margin: 0;
-  background-color: var(--primary-color);
+  background-color: var(--background-color);
 }
 
 .content-container {
