@@ -1,0 +1,67 @@
+.intro {
+    /* variables */
+
+    --text-color: white;
+
+    /* code */
+    color: white;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    gap: 3rem;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.imageContainer {
+    background-color: #F1F1F1;
+    width: 221px;
+    height: 221px;
+    max-width: 100%;
+    aspect-ratio: 1;
+    border-radius: 15px;
+}
+
+.imageContainer > img {
+    width: 100%;
+    height: 100%;
+}
+
+.name {
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+    margin-bottom: 0;
+    margin-top: 0.6875rem;
+    font-weight: 100;
+    font-size: 1.5rem;
+    margin-left: 6px;
+}
+
+.aboutMe { margin-left: 6px }
+
+.aboutTitle {
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: 3.9px;
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+
+.aboutText {
+    font-size: 1.25rem;
+    line-height: 1.8em;
+    letter-spacing: 0.5px;
+    margin-top: 0.9rem;
+    margin-bottom: 1.4rem;
+}
+
+.text-gap { height: 1.875rem; }

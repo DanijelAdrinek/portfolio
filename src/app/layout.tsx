@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import mobileBackground from "@public/images/mobile background.webp";
 
 import { Space_Mono } from 'next/font/google';
 
@@ -18,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={space_mono.className}>
+      <body className={space_mono.className} style={{backgroundImage: `url('${mobileBackground.src}')`}}>
         {children}
       </body>
     </html>

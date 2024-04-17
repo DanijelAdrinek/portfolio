@@ -14,11 +14,13 @@ class AnimationHandler {
             duration: 700,
             easing: "ease-out-cubic",
         });
+        document.body.classList.remove('animationsDisabled');
     }
 
     disableAnimations() {
         this.cacheHandler.setCache("animations", "false");
         AOS.init({disable: true});
+        document.body.classList.add('animationsDisabled');
     }
 
 }

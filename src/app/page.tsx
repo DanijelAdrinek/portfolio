@@ -1,7 +1,7 @@
 "use client"
 
-import Info from "./(components)/info/info";
-import Intro from "./(components)/intro/intro";
+import Info from "../components/info/info";
+import Intro from "../components/intro/intro";
 import { useState, useEffect } from 'react';
 import "aos/dist/aos.css";
 import CacheHandler from "@/utils/CacheHandler";
@@ -25,8 +25,6 @@ export default function Home() {
   useEffect(() => {
     const animationHandler = new AnimationHandler();
 
-    console.log(useAnimations);
-
     if(useAnimations !== 'false') {
       animationHandler.enableAnimations();
     } else {
@@ -39,6 +37,7 @@ export default function Home() {
       <main>
         <Intro/>
         <Info/>
+        <div style={{width: '100%', height: '100vh'}}></div>
       </main>
 
     </>

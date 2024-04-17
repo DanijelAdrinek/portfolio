@@ -1,6 +1,6 @@
 :root {
   --background-color: #04071a;
-  --secondary-color: #495057;
+  --secondary-color: rgba(217, 217, 217, 0.32);
   --tertiary-color: #535C91;
   --quaternary-color: #9290C3;
 
@@ -8,14 +8,17 @@
 
   --details-primary: #CED4DA;
 }
+
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   width: 100%;
-  height: 100%;
 }
 
 body {
   margin: 0;
-  background-color: var(--background-color);
 }
 
 .content-container {
@@ -37,6 +40,46 @@ body {
   box-shadow: white 0px 0px 10px;
 }
 
+.animationsDisabled * {
+  animation: none !important;
+}
+
+.info__infoCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 33px 0 33px 39px;
+  margin: auto;
+  max-width: calc(100% - 76px);
+  border-radius: 20px;
+  background-color: var(--secondary-color);
+}
+
+/* Animations */
+.info__infoCard.aos-animate .anim-typewriter {
+  animation: typewriter 4s steps(40) 1s 1 normal both,
+  blinkTextCursor 500ms steps(40) infinite normal;
+}
+
+@keyframes typewriter {
+  from {
+        width: 0;
+  }
+  to {
+        width: 16em;
+  }
+}
+
+@keyframes blinkTextCursor {
+  from {
+        border-right-color: rgba(255, 255, 255, 0.75);
+  }
+  to {
+        border-right-color: transparent;
+  }
+}
+
+/* Responsive */
 @media screen and (min-width: 768px) {
   .content-container {
     grid-template-columns: 
