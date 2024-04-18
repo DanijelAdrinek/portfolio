@@ -51,6 +51,7 @@ export function useAnimations(): [boolean, (areEnabled: boolean) => void] {
             setAnimations(areAnimationsEnabled);
         }
         
+        // eslint-disable-next-line
     }, [areAnimationsEnabled]);
 
     return [areAnimationsEnabled, setAnimations];
