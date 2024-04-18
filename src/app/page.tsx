@@ -2,44 +2,25 @@
 
 import Info from "../components/info/info";
 import Intro from "../components/intro/intro";
-import { useState, useEffect } from 'react';
 import "aos/dist/aos.css";
-import CacheHandler from "@/utils/CacheHandler";
-import AnimationHandler from "@/utils/AnimationHandler";
+import { useAnimations } from "@/hooks";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export default function Home() {
 
-  const cacheHandler = new CacheHandler()
+  const [areAnimationsEnabled, setAnimations] = useAnimations();
 
-  const [useAnimations, setUseAnimations] = useState(cacheHandler.readCache('animations')); 
-
-  function toggleUseAnimation() {
-
-    if(useAnimations === "true") {
-      setUseAnimations("false");
-    } else {
-      setUseAnimations("true")
-    }
-  }
-
-  useEffect(() => {
-    const animationHandler = new AnimationHandler();
-
-    if(useAnimations !== 'false') {
-      animationHandler.enableAnimations();
-    } else {
-      animationHandler.disableAnimations();
-    }
-  }, [useAnimations]);
+  const toggleAnimations = () => setAnimations(!areAnimationsEnabled);
 
   return (
-    <>
+    <Suspense fallback={<Loading/>}>
       <main>
         <Intro/>
         <Info/>
         <div style={{width: '100%', height: '100vh'}}></div>
+        <button onClick={toggleAnimations}>TOGGLE ANIMATIONS!</button>
       </main>
-
-    </>
+    </Suspense>
   );
 }
