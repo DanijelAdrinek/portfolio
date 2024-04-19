@@ -51,7 +51,7 @@ export function useAnimations(): {areAnimationsEnabled: boolean,setAnimations: (
 
     useEffect(() => {
 
-        // because of the way localstorage works, it will render twice initially
+        // because of the way useLocalStorage works, it will render twice initially
         if(numOfRenders.current < 2) {
             console.log(numOfRenders.current)
             numOfRenders.current = numOfRenders.current + 1;
