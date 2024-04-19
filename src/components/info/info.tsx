@@ -1,15 +1,23 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import myImage from '@public/images/Danijel_Adrinek_Professional.webp';
 import Image from 'next/image';
 import styles from './info.module.css';
+import { useCustomAnimations } from '@/hooks';
 
 function Info() {
 
     const [isMobile, setIsMobile] = useState(false);
 
+    const { SequentialAnimation } = useCustomAnimations();
+
+    let languages = useRef(null);
+
     useEffect(() => {
+
+        SequentialAnimation(languages.current, 100);
+
         const updateWindowDimensions = () => {
             setIsMobile(window.innerWidth <= 768);
         };
@@ -22,7 +30,7 @@ function Info() {
 
         // Clean up the event listener when the component unmounts
         return () => window.removeEventListener('resize', updateWindowDimensions);
-    }, []);
+    }, [SequentialAnimation]);
 
     const firstArticleDelay = isMobile ? 650 : 650;
     const secondAricleDelay = isMobile ? 950 : 950;
@@ -46,7 +54,7 @@ function Info() {
                     </article>
                     <article data-aos="fade-up" data-aos-delay={secondAricleDelay} data-aos-anchor-placement="top-bottom">
                         <h5>Programming languages I have previously used:</h5>
-                        <p>
+                        <p ref={languages}>
                             <a href="https://nextjs.org/docs" target="_blank" rel="noreferrer"><Image src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/nextjs-colored.svg" width="36" height="36" alt="NextJs" /></a>
                             <a href="https://shopify.com/](https://www.svgrepo.com/show/354341/shopify.svg" target="_blank" rel="noreferrer">
                             <Image src="https://www.svgrepo.com/show/354341/shopify.svg" width="36" height="36" alt="Shopify" />

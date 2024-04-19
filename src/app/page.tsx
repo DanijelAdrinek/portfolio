@@ -9,7 +9,7 @@ import Loading from "./loading";
 
 export default function Home() {
 
-  const [areAnimationsEnabled, setAnimations] = useAnimations();
+  const {areAnimationsEnabled, setAnimations} = useAnimations();
 
   const toggleAnimations = () => setAnimations(!areAnimationsEnabled);
 

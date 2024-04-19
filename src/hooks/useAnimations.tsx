@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useLocalStorage } from './useLocalStorage';
 import AOS from 'aos';
 
-export function useAnimations(): [boolean, (areEnabled: boolean) => void] {
+export function useAnimations(): {areAnimationsEnabled: boolean,setAnimations: (areEnabled: boolean) => void,refresh: () => void} {
 
     const initialRender = useRef(true);
 
@@ -31,6 +31,14 @@ export function useAnimations(): [boolean, (areEnabled: boolean) => void] {
         AOS.init({ disable: true });
     }
 
+    function refresh() {
+        if(areAnimationsEnabled) {
+            _enableAnimations();
+        } else {
+            _disableAnimations();
+        }
+    }
+
     function setAnimations(areEnabled: boolean) {
         if(areEnabled) {
             _enableAnimations();
@@ -54,6 +62,6 @@ export function useAnimations(): [boolean, (areEnabled: boolean) => void] {
         // eslint-disable-next-line
     }, [areAnimationsEnabled]);
 
-    return [areAnimationsEnabled, setAnimations];
+    return {areAnimationsEnabled, setAnimations, refresh};
 
 }
