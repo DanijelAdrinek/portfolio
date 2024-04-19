@@ -6,7 +6,7 @@ import AOS from 'aos';
 
 export function useAnimations(): {areAnimationsEnabled: boolean,setAnimations: (areEnabled: boolean) => void,refresh: () => void} {
 
-    const initialRender = useRef(true);
+    const numOfRenders = useRef(0);
 
     const key: string = 'animations';
     const initialValue: boolean = true;
@@ -51,13 +51,15 @@ export function useAnimations(): {areAnimationsEnabled: boolean,setAnimations: (
 
     useEffect(() => {
 
-        if(initialRender.current) {
-            console.log(initialRender.current)
-            initialRender.current = false;
-        } else {
-            console.log(initialRender.current)
-            setAnimations(areAnimationsEnabled);
+        // because of the way localstorage works, it will render twice initially
+        if(numOfRenders.current < 2) {
+            console.log(numOfRenders.current)
+            numOfRenders.current = numOfRenders.current + 1;
+            return;
         }
+            
+        console.log(numOfRenders.current)
+        setAnimations(areAnimationsEnabled);
         
         // eslint-disable-next-line
     }, [areAnimationsEnabled]);
