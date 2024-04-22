@@ -9,7 +9,7 @@ import { useMediaQuery } from '@/hooks';
 
 function Info() {
 
-    const [isMobile, setIsMobile] = useState(false);
+    const isMobile = useMediaQuery('(max-width: 768px)');
 
     const { SequentialAnimation } = useCustomAnimations();
 
@@ -19,18 +19,6 @@ function Info() {
 
         SequentialAnimation(languages.current, 100);
 
-        const updateWindowDimensions = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
-
-        // Add event listener to update isMobile state when window size changes
-        window.addEventListener('resize', updateWindowDimensions);
-
-        // Call the function once initially to set isMobile state
-        updateWindowDimensions();
-
-        // Clean up the event listener when the component unmounts
-        return () => window.removeEventListener('resize', updateWindowDimensions);
     }, [SequentialAnimation]);
 
     const firstArticleDelay = isMobile ? 650 : 650;
