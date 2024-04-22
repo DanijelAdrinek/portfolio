@@ -5,6 +5,7 @@ import myImage from '@public/images/Danijel_Adrinek_Professional.webp';
 import Image from 'next/image';
 import styles from './info.module.css';
 import { useCustomAnimations } from '@/hooks';
+import { useMediaQuery } from '@/hooks';
 
 function Info() {
 
