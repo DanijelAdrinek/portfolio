@@ -70,7 +70,16 @@
 
 .text-gap { height: 1.875rem; }
 
-.languages p a { display: inline-block; }
+.languages p {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    
+}
+
+.languages p a {
+    display: flex;
+}
 
 @media screen and (min-width: 768px) {
     .content {
@@ -100,9 +109,7 @@
     }
 
     .languages p  {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-        grid-row-gap: 1.5rem;
+        gap: 2rem;
     }
 
     .languages .title {
