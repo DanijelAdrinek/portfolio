@@ -90,4 +90,29 @@
     .languagesCard { grid-area: languages; }
 
     .textCard { grid-area: text; }
+
+    .title {
+        font-size: 1.75rem;
+    }
+
+    .text {
+        font-size: 1.25rem;
+    }
+
+    .languages p  {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-row-gap: 1.5rem;
+    }
+
+    .languages .title {
+        margin-bottom: 3rem;
+    }
+    
+    .imageContainer {
+        display: flex;
+        width: calc(100% - 33px);
+        height: auto;
+        aspect-ratio: 1;
+    }
 }

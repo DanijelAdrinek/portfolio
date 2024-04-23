@@ -10,8 +10,6 @@ import { useMediaQuery } from '@/hooks';
 
 const Info = () => {
 
-    const isMobile = useMediaQuery('(max-width: 768px)');
-
     const { SequentialAnimation } = useCustomAnimations();
 
     let languages = useRef(null);
@@ -22,8 +20,7 @@ const Info = () => {
 
     }, [SequentialAnimation]);
 
-    const firstArticleDelay = isMobile ? 650 : 650;
-    const secondAricleDelay = isMobile ? 950 : 950;
+    const delay = 650
 
     return (
         <section className={styles.intro}>
@@ -41,10 +38,8 @@ const Info = () => {
                     </div>
                 </article>
 
-                <div className={`info__infoCard ${styles.languagesCard}`}>
-                    <article data-aos="fade-up" data-aos-delay={firstArticleDelay} data-aos-anchor-placement="top-bottom">
-                    </article>
-                    <article className={styles.languages} data-aos="fade-up" data-aos-delay={secondAricleDelay} data-aos-anchor-placement="top-bottom">
+                <div className={`info__infoCard ${styles.languagesCard}`} data-aos="fade-up" data-aos-delay={delay}>
+                    <article className={styles.languages}  data-aos-anchor-placement="top-bottom">
                         <h5 className={styles.title}>Programming languages I have previously used:</h5>
                         <p ref={languages}>
                             <a href="https://nextjs.org/docs" target="_blank" rel="noreferrer"><Image src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/nextjs-colored.svg" width="36" height="36" alt="NextJs" /></a>
@@ -56,7 +51,7 @@ const Info = () => {
                     </article>
                 </div>
 
-                <div className={`info__infoCard ${styles.textCard}`}>
+                <div className={`info__infoCard ${styles.textCard}`} data-aos="fade-up" data-aos-delay={delay}>
                     <article>
                         <h3 className={styles.title}>What I can do for you:</h3>
                         <p className={styles.text}>Clean Code</p>
