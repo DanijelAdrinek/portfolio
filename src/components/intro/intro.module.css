@@ -36,6 +36,20 @@
     z-index: 0;
 }
 
+.starsImg {
+    object-fit: cover;
+}
+
+.moonImg {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+}
+
+.clifsImg {
+    object-fit: cover;
+}
+
 @media screen and (min-width: 768px) {
     .name { font-size: 2.8rem; }
 }

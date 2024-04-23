@@ -16,9 +16,11 @@
     display: flex;
     gap: 3rem;
     flex-direction: column;
+    max-width: calc(100% - 76px);
+    margin: auto;
 }
 
-.title {
+.sectionTitle {
     font-size: 2rem;
     text-align: center;
 }
@@ -50,7 +52,7 @@
 
 .aboutMe { margin-left: 6px }
 
-.aboutTitle {
+.title {
     font-weight: 600;
     font-size: 1.25rem;
     letter-spacing: 3.9px;
@@ -58,7 +60,7 @@
     margin-bottom: 0;
 }
 
-.aboutText {
+.text {
     font-size: 1.25rem;
     line-height: 1.8em;
     letter-spacing: 0.5px;
@@ -67,3 +69,25 @@
 }
 
 .text-gap { height: 1.875rem; }
+
+.languages p a { display: inline-block; }
+
+@media screen and (min-width: 768px) {
+    .content {
+        display: grid;
+        grid-template-columns: minmax(350px, 1fr) 3fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        'aboutMe languages'
+        'aboutMe text';
+        justify-content: stretch;
+    }
+
+    .aboutMeCard { 
+        grid-area: aboutMe;
+    }
+
+    .languagesCard { grid-area: languages; }
+
+    .textCard { grid-area: text; }
+}

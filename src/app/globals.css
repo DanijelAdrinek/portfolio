@@ -49,8 +49,7 @@ body {
   flex-direction: column;
   justify-content: center;
   padding: 33px 0 33px 39px;
-  margin: auto;
-  max-width: calc(100% - 76px);
+  width: 100%;
   border-radius: 20px;
   background-color: var(--secondary-color);
 }

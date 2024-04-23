@@ -7,7 +7,8 @@ import styles from './info.module.css';
 import { useCustomAnimations } from '@/hooks';
 import { useMediaQuery } from '@/hooks';
 
-function Info() {
+
+const Info = () => {
 
     const isMobile = useMediaQuery('(max-width: 768px)');
 
@@ -26,23 +27,25 @@ function Info() {
 
     return (
         <section className={styles.intro}>
-            <h1 className={styles.title} data-aos="fade-up" data-aos-delay="50" data-aos-anchor-placement="top-bottom">WEB DEVELOPER</h1>
+            <h1 className={styles.sectionTitle} data-aos="fade-up" data-aos-delay="50" data-aos-anchor-placement="top-bottom">WEB DEVELOPER</h1>
             <div className={styles.content}>
-                <article className='info__infoCard' data-aos="fade-up" data-aos-delay="350" data-aos-anchor-placement="top-bottom">
+                
+                <article className={`info__infoCard ${styles.aboutMeCard}`} data-aos="fade-up" data-aos-delay="350" data-aos-anchor-placement="top-bottom">
                     <div className={styles.imageContainer}>
                         <Image src={myImage} alt='Danijel Adrinek' height={250} width={250}/>
                     </div>
                     <h3 className={`anim-typewriter ${styles.name}`}>Danijel Adrinek</h3>
                     <div className={styles.aboutMe}>
-                        <h5 className={styles.aboutTitle}>About me</h5>
-                        <p className={styles.aboutText}>I am a passionate web developer with a keen eye for details.</p> <p className={styles.aboutText}>I transform your designs designs into pixel-perfect web solutions while keeping the websites SEO optimized, easy to use, and written in clean, easily managable code.</p>
+                        <h5 className={styles.title}>About me</h5>
+                        <p className={styles.text}>I am a passionate web developer with a keen eye for details.</p> <p className={styles.text}>I transform your designs designs into pixel-perfect web solutions while keeping the websites SEO optimized, easy to use, and written in clean, easily managable code.</p>
                     </div>
                 </article>
-                <div className="text-container">
+
+                <div className={`info__infoCard ${styles.languagesCard}`}>
                     <article data-aos="fade-up" data-aos-delay={firstArticleDelay} data-aos-anchor-placement="top-bottom">
                     </article>
-                    <article data-aos="fade-up" data-aos-delay={secondAricleDelay} data-aos-anchor-placement="top-bottom">
-                        <h5>Programming languages I have previously used:</h5>
+                    <article className={styles.languages} data-aos="fade-up" data-aos-delay={secondAricleDelay} data-aos-anchor-placement="top-bottom">
+                        <h5 className={styles.title}>Programming languages I have previously used:</h5>
                         <p ref={languages}>
                             <a href="https://nextjs.org/docs" target="_blank" rel="noreferrer"><Image src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/nextjs-colored.svg" width="36" height="36" alt="NextJs" /></a>
                             <a href="https://shopify.com/](https://www.svgrepo.com/show/354341/shopify.svg" target="_blank" rel="noreferrer">
@@ -52,6 +55,20 @@ function Info() {
                         </p>
                     </article>
                 </div>
+
+                <div className={`info__infoCard ${styles.textCard}`}>
+                    <article>
+                        <h3 className={styles.title}>What I can do for you:</h3>
+                        <p className={styles.text}>Clean Code</p>
+                        <p className={styles.text}>Pixel-perfect web solutions that completely match the design assigned to me</p>
+                        <p className={styles.text}>SEO optimized websites that perform well on the web, and rank high on Google</p>
+                        <p className={styles.text}>Advanced knowledge of animations and animation libraries like AOS</p>
+                        <p className={styles.text}>Mobile first code</p>
+                        <p className={styles.text}>Cross browser compatibility</p>
+                        <p className={styles.text}>Responsive design</p>
+                    </article>
+                </div>
+
             </div>
         </section>
     );

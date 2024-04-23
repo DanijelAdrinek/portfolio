@@ -6,6 +6,7 @@ import stars from '@public/images/stars.webp';
 import clifs from '@public/images/clifs.webp';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import Styles from './intro.module.css';
+import Image from 'next/image';
 
 function Intro() {
 
@@ -16,11 +17,8 @@ function Intro() {
                     className={Styles.background}
                     factor={2.5}
                     speed={0}
-                    style={{
-                        backgroundImage: `url(${stars.src})`
-                    }}
                 >
-
+                    <Image className={Styles.starsImg} src={stars.src} alt='stars' fill={true} priority={true} />
                 </ParallaxLayer>
 
                 <ParallaxLayer
@@ -41,15 +39,14 @@ function Intro() {
                     className={Styles.moon}
                     speed={2}
                     style={{
-                        backgroundImage: `url(${moon.src})`,
-                        backgroundSize: 'contain',
-                        backgroundPosition: 'center',
+                        display: 'flex',
+                        alignItems: 'center',
                         width: 'calc(100px + 20%)',
                         marginLeft: 'auto',
                         marginRight: 'auto'
                     }}
                 >
-
+                    <Image className={Styles.moonImg} src={moon.src} alt='moon' width={350} height={350} priority={true} />
                 </ParallaxLayer>
                 
                 <ParallaxLayer
@@ -57,14 +54,8 @@ function Intro() {
                     className={Styles.clifs}
                     factor={2.5}
                     speed={0.6}
-                    style={{
-                        backgroundImage: `url(${clifs.src})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        pointerEvents: 'none'
-                    }}
                 >
-                
+                    <Image className={Styles.clifsImg} src={clifs.src} alt='clifs' fill={true} priority={true} />
                 </ParallaxLayer>
             </Parallax>
 
