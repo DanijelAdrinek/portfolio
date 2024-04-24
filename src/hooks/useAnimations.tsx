@@ -31,20 +31,18 @@ export function useAnimations(): {areAnimationsEnabled: boolean,setAnimations: (
         AOS.init({ disable: true });
     }
 
-    function refresh() {
-        if(areAnimationsEnabled) {
+    function _handleAnimationStatus(shouldBeEnabled: boolean) {
+        if(shouldBeEnabled) {
             _enableAnimations();
         } else {
             _disableAnimations();
         }
     }
 
+    function refresh() {_handleAnimationStatus(areAnimationsEnabled);}
+
     function setAnimations(areEnabled: boolean) {
-        if(areEnabled) {
-            _enableAnimations();
-        } else {
-            _disableAnimations();
-        }
+        _handleAnimationStatus(areEnabled);
 
         setValue(areEnabled);
     }
@@ -56,8 +54,7 @@ export function useAnimations(): {areAnimationsEnabled: boolean,setAnimations: (
             numOfRenders.current = numOfRenders.current + 1;
             return;
         }
-            
-        console.log(numOfRenders.current)
+
         setAnimations(areAnimationsEnabled);
         
         // eslint-disable-next-line
