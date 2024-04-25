@@ -4,8 +4,11 @@ import Styles from './code.module.css';
 import './prism.css';
 import AOS from 'aos';
 
+type SideObject = {class: string, animation: string};
+
 interface Sides {
-    [index: string]: {class: string, animation: string};
+    LEFT: SideObject;
+    RIGHT: SideObject;
 }
 
 export const SIDES: Sides = {
@@ -14,12 +17,17 @@ export const SIDES: Sides = {
 }
 
 interface Languages {
-    [index: string]: string;
+    JAVASCRIPT: string;
+    TYPESCRIPT: string;
+    HTML: string;
+    CSS: string;
 }
 
 export const LANGUAGES: Languages = {
     JAVASCRIPT: "language-javascript",
-
+    TYPESCRIPT: "language-typescript",
+    HTML: "language-html",
+    CSS: "language-css"
 }
 
 type Side = typeof SIDES[keyof typeof SIDES];
@@ -49,7 +57,7 @@ function Code({children, side = SIDES.LEFT, language = LANGUAGES.JAVASCRIPT, not
 
     return (
         <div className={Styles.editorContainer}>
-            <div className={`${Styles.editor} ${Styles[side.class]} ${isOpen ? Styles.open : Styles.closed}`} style={{transition: 'all 0.5s ease-in-out'}} data-aos={side.animation}>
+            <article className={`${Styles.editor} ${Styles[side.class]} ${isOpen ? Styles.open : Styles.closed}`} style={{transition: 'all 0.5s ease-in-out'}} data-aos={side.animation}>
 
                 {/* Header */}
                 <div className={Styles.header}>
@@ -62,14 +70,13 @@ function Code({children, side = SIDES.LEFT, language = LANGUAGES.JAVASCRIPT, not
                     <button onClick={toggleIsOpen} className={Styles.button}>{isOpen ? "Shrink" : "Expand"}</button> <br/>
                     {/* Displays note contents, then adds br tag to the end to create a new line */}
                     {note && <>{note}<br/></>}
-
                     
                     <code className={language}>
                         {children}
                     </code>
 
                 </pre>
-            </div>
+            </article>
         </div>
     );
 }

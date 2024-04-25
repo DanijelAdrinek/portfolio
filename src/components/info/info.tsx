@@ -19,7 +19,7 @@ const Info = () => {
 
     }, [SequentialAnimation]);
 
-    const delay = 650
+    const delay = 450
 
     return (
         <section className={styles.intro}>
