@@ -1,8 +1,11 @@
+"use client";
+
 import React, { useEffect, useState } from 'react';
 import Prism from 'prismjs';
 import Styles from './code.module.css';
 import './prism.css';
 import AOS from 'aos';
+import Animation from '../animation/animation';
 
 type SideObject = {class: string, animation: string};
 
@@ -42,22 +45,23 @@ interface Props {
 
 function Code({children, side = SIDES.LEFT, language = LANGUAGES.JAVASCRIPT, note}: Props) {;
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(false);
 
     useEffect(() => {
 
         Prism.highlightAll();
         AOS.refreshHard();
 
-    }, [isOpen]);
+    }, [isExpanded]);
 
-    function toggleIsOpen() {
-        setIsOpen(!isOpen);
+    function toggleIsExpanded() {
+        setIsExpanded(!isExpanded);
     }
 
     return (
         <div className={Styles.editorContainer}>
-            <article className={`${Styles.editor} ${Styles[side.class]} ${isOpen ? Styles.open : Styles.closed}`} style={{transition: 'all 0.5s ease-in-out'}} data-aos={side.animation}>
+            <Animation animation={side.animation}>
+            <article className={`${Styles.editor} ${Styles[side.class]} ${isExpanded ? Styles.open : Styles.closed}`}>
 
                 {/* Header */}
                 <div className={Styles.header}>
@@ -67,7 +71,7 @@ function Code({children, side = SIDES.LEFT, language = LANGUAGES.JAVASCRIPT, not
                 {/* Code */}
                 <pre>
 
-                    <button onClick={toggleIsOpen} className={Styles.button}>{isOpen ? "Shrink" : "Expand"}</button> <br/>
+                    <button onClick={toggleIsExpanded} className={Styles.button}>{isExpanded ? "Shrink" : "Expand"}</button> <br/>
                     {/* Displays note contents, then adds br tag to the end to create a new line */}
                     {note && <>{note}<br/></>}
                     
@@ -77,6 +81,7 @@ function Code({children, side = SIDES.LEFT, language = LANGUAGES.JAVASCRIPT, not
 
                 </pre>
             </article>
+            </Animation>
         </div>
     );
 }

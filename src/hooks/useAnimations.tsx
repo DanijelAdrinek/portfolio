@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useLocalStorage } from './useLocalStorage';
 import AOS from 'aos';
 
-export function useAnimations(): {areAnimationsEnabled: boolean,setAnimations: (areEnabled: boolean) => void,refresh: () => void} {
+export function useAnimations(): {areAnimationsEnabled: boolean, setAnimations: (areEnabled: boolean) => void, refresh: () => void} {
 
     const numOfRenders = useRef(0);
 
@@ -26,10 +26,7 @@ export function useAnimations(): {areAnimationsEnabled: boolean,setAnimations: (
         });
     }
 
-    function _disableAnimations() {
-        document.body.classList.add('animationsDisabled');
-        AOS.init({ disable: true });
-    }
+    function _disableAnimations() {document.body.classList.add('animationsDisabled');}
 
     function _handleAnimationStatus(shouldBeEnabled: boolean) {
         if(shouldBeEnabled) {
@@ -50,7 +47,7 @@ export function useAnimations(): {areAnimationsEnabled: boolean,setAnimations: (
     useEffect(() => {
 
         // because of the way useLocalStorage works, it will render twice initially
-        if(numOfRenders.current < 2) {
+        if(numOfRenders.current < 1) {
             numOfRenders.current = numOfRenders.current + 1;
             return;
         }

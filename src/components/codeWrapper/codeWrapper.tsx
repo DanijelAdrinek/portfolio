@@ -1,12 +1,11 @@
 import React from 'react';
+import Animation from '@/components/animation/animation';
 import Code from "@/components/code/code";
-import { SIDES, LANGUAGES } from '@/components/code/code';
-import Styles from "./code-wrapper.module.css";
-import AOS from 'aos';
+import Styles from "./codeWrapper.module.css";
 function CodeWrapper() {
     return (
         <section className={Styles.wrapper}>
-            <h3 className={Styles.sectionTitle}> Some examples of my code </h3>
+            <Animation className={Styles.sectionTitle} Tag='h3' animation='fade-up'> Some examples of my code </Animation>
             <Code note="useAnimations hook:">
             {
 `    
@@ -79,7 +78,7 @@ export function useAnimations(): {areAnimationsEnabled: boolean,setAnimations: (
                 }
             </Code>
 
-            <Code note="useAnimations hook:" side={SIDES.RIGHT} language={LANGUAGES.HTML}>
+            <Code note="useAnimations hook:">
             {
 `    
 

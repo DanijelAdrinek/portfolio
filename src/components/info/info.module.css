@@ -70,7 +70,8 @@
 
 .text-gap { height: 1.875rem; }
 
-.languages p {
+.languages div {
+    margin-top: 1rem;
     display: flex;
     gap: 25px;
     flex-wrap: wrap;
@@ -108,7 +109,8 @@
         font-size: 1.25rem;
     }
 
-    .languages p  {
+    .languages div {
+        margin-top: 1.5rem;
         gap: 2rem;
     }
 
