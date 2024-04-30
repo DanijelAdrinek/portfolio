@@ -2,6 +2,8 @@
 
 import React, { ReactNode, createContext } from 'react';
 import { useAnimations } from '@/hooks';
+import Button from '@/components/button/button';
+import { BUTTON_SIZES } from '@/constants';
 
 interface AnimationControllerProps {
   children: ReactNode;
@@ -20,7 +22,7 @@ function AnimationController({ children }: AnimationControllerProps) {
             <AnimationsContext.Provider value={areAnimationsEnabled}>
                 {children}
             </AnimationsContext.Provider>
-            <button onClick={toggleAnimations}>TOGGLE ANIMATIONS!</button>
+            <Button clickFunction={toggleAnimations}>TOGGLE ANIMATIONS!</Button>
         </main>
     );
 }
