@@ -6,10 +6,10 @@ import Styles from './code.module.css';
 import './prism.css';
 import AOS from 'aos';
 import Animation from '../animation/animation';
-import { SIDES, LANGUAGES } from '@/constants';
+import { CODE_SIDES, CODE_LANGUAGES } from '@/constants';
 
-type Side = typeof SIDES[keyof typeof SIDES];
-type Language = typeof LANGUAGES[keyof typeof LANGUAGES];
+type Side = typeof CODE_SIDES[keyof typeof CODE_SIDES];
+type Language = typeof CODE_LANGUAGES[keyof typeof CODE_LANGUAGES];
 
 interface Props {
     children: string;
@@ -18,7 +18,7 @@ interface Props {
     note?: string;
 }
 
-function Code({children, side = SIDES.LEFT, language = LANGUAGES.JAVASCRIPT, note}: Props) {;
+function Code({children, side = CODE_SIDES.LEFT, language = CODE_LANGUAGES.JAVASCRIPT, note}: Props) {;
 
     const [isExpanded, setIsExpanded] = useState(false);
 

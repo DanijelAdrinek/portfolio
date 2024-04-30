@@ -1,1 +1,1 @@
-export { SIDES, LANGUAGES } from './code';
+export { CODE_SIDES, CODE_LANGUAGES } from './code';

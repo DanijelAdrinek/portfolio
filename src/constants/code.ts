@@ -5,7 +5,7 @@ interface Sides {
   RIGHT: SideObject;
 }
 
-export const SIDES: Sides = {
+export const CODE_SIDES: Sides = {
   LEFT: { class: 'left', animation: "fade-right" },
   RIGHT: { class: 'right', animation: "fade-left" }
 }
@@ -17,7 +17,7 @@ interface Languages {
   CSS: string;
 }
 
-export const LANGUAGES: Languages = {
+export const CODE_LANGUAGES: Languages = {
   JAVASCRIPT: "language-javascript",
   TYPESCRIPT: "language-typescript",
   HTML: "language-html",
