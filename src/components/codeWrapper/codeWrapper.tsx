@@ -2,6 +2,7 @@ import React from 'react';
 import Animation from '@/components/animation/animation';
 import Code from "@/components/code/code";
 import Styles from "./codeWrapper.module.css";
+import { SIDES } from '@/constants';
 function CodeWrapper() {
     return (
         <section className={Styles.wrapper}>
@@ -78,7 +79,7 @@ export function useAnimations(): {areAnimationsEnabled: boolean,setAnimations: (
                 }
             </Code>
 
-            <Code note="useAnimations hook:">
+            <Code note="useAnimations hook:" side={SIDES.RIGHT}>
             {
 `    
 
