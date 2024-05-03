@@ -18,6 +18,7 @@ export function useAnimations(): {areAnimationsEnabled: boolean, setAnimations: 
     function _enableAnimations() {
         document.body.classList.remove('animationsDisabled');
         AOS.init({
+            disable: 'mobile',
             duration: 350,
             offset: 300,
             once: false,
