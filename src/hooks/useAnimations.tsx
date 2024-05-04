@@ -9,11 +9,11 @@ export function useAnimations(): {areAnimationsEnabled: boolean, setAnimations: 
     const numOfRenders = useRef(0);
 
     const key: string = 'animations';
-    const initialValue: boolean = true;
+    const initialValue: null = null;
 
-    let [areAnimationsEnabled, setValue] = useLocalStorage(key, initialValue);
+    let [areAnimationsEnabled, setValue]: [boolean | null, ((value: boolean) => void)] = useLocalStorage(key, initialValue);
     
-    areAnimationsEnabled = Boolean(areAnimationsEnabled);
+    console.log('useAnimations');
 
     function _enableAnimations() {
         document.body.classList.remove('animationsDisabled');
@@ -25,6 +25,8 @@ export function useAnimations(): {areAnimationsEnabled: boolean, setAnimations: 
             easing: 'ease-in-out',
             anchorPlacement: 'top-bottom'
         });
+
+        console.log('ran animations');
     }
 
     function _disableAnimations() {document.body.classList.add('animationsDisabled');}
@@ -37,9 +39,11 @@ export function useAnimations(): {areAnimationsEnabled: boolean, setAnimations: 
         }
     }
 
-    function refresh() {_handleAnimationStatus(areAnimationsEnabled);}
+    function refresh() {_handleAnimationStatus(areAnimationsEnabled!);}
 
     function setAnimations(areEnabled: boolean) {
+        console.log('setAnimations');
+
         _handleAnimationStatus(areEnabled);
 
         setValue(areEnabled);
@@ -47,17 +51,13 @@ export function useAnimations(): {areAnimationsEnabled: boolean, setAnimations: 
 
     useEffect(() => {
 
-        // because of the way useLocalStorage works, it will render twice initially
-        if(numOfRenders.current < 1) {
-            numOfRenders.current = numOfRenders.current + 1;
-            return;
+        if(areAnimationsEnabled != null && areAnimationsEnabled != undefined) {
+            setAnimations(areAnimationsEnabled);
         }
-
-        setAnimations(areAnimationsEnabled);
         
         // eslint-disable-next-line
     }, [areAnimationsEnabled]);
 
-    return {areAnimationsEnabled, setAnimations, refresh};
+    return {areAnimationsEnabled: areAnimationsEnabled!, setAnimations, refresh};
 
 }

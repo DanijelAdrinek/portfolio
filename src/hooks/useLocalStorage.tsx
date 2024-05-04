@@ -2,21 +2,21 @@
 
 import { useEffect, useState } from 'react';
 
-export const useLocalStorage = <T,>(
+export const useLocalStorage =(
   key: string,
-  initialValue: T
-): [T, (value: T | ((prop: T) => T)) => void] => {
-  const [storedValue, setStoredValue] = useState<T>(initialValue);
+  initialValue: any
+): [any, (value: any | ((prop: any) => any)) => void] => {
+  const [storedValue, setStoredValue] = useState<any>(initialValue);
 
   useEffect(() => {
     const item = window.localStorage.getItem(key);
     if (item) {
-      setStoredValue(JSON.parse(item) as T);
+      setStoredValue(JSON.parse(item) as any);
     }
     // eslint-disable-next-line
   }, []);
 
-  const setValue = (value: T | ((prop: T) => T)) => {
+  const setValue = (value: any | ((prop: any) => any)) => {
     try {
       const valueToStore =
         value instanceof Function ? value(storedValue) : value;
