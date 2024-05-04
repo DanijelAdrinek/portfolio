@@ -9,11 +9,12 @@ export function useAnimations(): {areAnimationsEnabled: boolean, setAnimations: 
     const numOfRenders = useRef(0);
 
     const key: string = 'animations';
-    const initialValue: null = null;
+    const initialValue: boolean = true;
 
-    let [areAnimationsEnabled, setValue]: [boolean | null, ((value: boolean) => void)] = useLocalStorage(key, initialValue);
-    
-    console.log('useAnimations');
+    let [areAnimationsEnabled, setValue] = useLocalStorage(key, initialValue);
+
+    // in production the site will render less times than in development, this code checks if we are in production or development, and adjusts the code accordingly
+    process.env.NODE_ENV === 'production' ? numOfRenders.current = 1 : numOfRenders.current = 0;
 
     function _enableAnimations() {
         document.body.classList.remove('animationsDisabled');
@@ -26,7 +27,6 @@ export function useAnimations(): {areAnimationsEnabled: boolean, setAnimations: 
             anchorPlacement: 'top-bottom'
         });
 
-        console.log('ran animations');
     }
 
     function _disableAnimations() {document.body.classList.add('animationsDisabled');}
@@ -42,7 +42,6 @@ export function useAnimations(): {areAnimationsEnabled: boolean, setAnimations: 
     function refresh() {_handleAnimationStatus(areAnimationsEnabled!);}
 
     function setAnimations(areEnabled: boolean) {
-        console.log('setAnimations');
 
         _handleAnimationStatus(areEnabled);
 
@@ -51,12 +50,20 @@ export function useAnimations(): {areAnimationsEnabled: boolean, setAnimations: 
 
     useEffect(() => {
 
-        if(areAnimationsEnabled != null && areAnimationsEnabled != undefined) {
-            setAnimations(areAnimationsEnabled);
+        // set to 2 when testing in development, set to 1 when using in production
+        if(numOfRenders.current < 2) {
+            numOfRenders.current = numOfRenders.current + 1;
+            return;
         }
+
+        setAnimations(areAnimationsEnabled);
         
         // eslint-disable-next-line
     }, [areAnimationsEnabled]);
+
+    useEffect(() => {
+        _enableAnimations();
+    }, []);
 
     return {areAnimationsEnabled: areAnimationsEnabled!, setAnimations, refresh};
 
