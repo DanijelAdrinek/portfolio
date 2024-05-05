@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
 import React from 'react';
-import moon from '@public/images/moon_2.webp';
+import moon from '@public/images/moon_2_smaller.webp';
 import stars from '@public/images/stars.webp';
 import clifs from '@public/images/clifs.webp';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
@@ -18,7 +18,7 @@ function Intro() {
                     factor={2.5}
                     speed={0}
                 >
-                    <Image className={Styles.starsImg} src={stars.src} alt='stars' fill={true} priority={true} />
+                    <Image className={Styles.starsImg} src={stars.src} alt='stars' fill={true} loading='lazy' sizes='100vw' />
                 </ParallaxLayer>
 
                 <ParallaxLayer
@@ -46,7 +46,9 @@ function Intro() {
                         marginRight: 'auto'
                     }}
                 >
-                    <Image className={Styles.moonImg} src={moon.src} alt='moon' width={350} height={350} priority={true} />
+                    <div className={Styles.moonImg}>
+                        <Image src={moon.src} layout='fill' sizes='calc(100px + 20%)' alt='moon' priority={true} loading='eager' />
+                    </div>
                 </ParallaxLayer>
                 
                 <ParallaxLayer
@@ -55,7 +57,7 @@ function Intro() {
                     factor={2.5}
                     speed={0.6}
                 >
-                    <Image className={Styles.clifsImg} src={clifs.src} alt='clifs' fill={true} priority={true} />
+                    <Image className={Styles.clifsImg} src={clifs.src} alt='clifs' fill={true} loading='lazy' sizes='100vw' />
                 </ParallaxLayer>
             </Parallax>
 
