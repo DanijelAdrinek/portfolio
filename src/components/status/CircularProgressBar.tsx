@@ -12,13 +12,11 @@ function CircularProgressBar({percentage} : {percentage : number}) {
     const dashOffset = 4.4 * (100 - percentage);
 
     return (
-        <div className="CircularProgressBar__container--progressbars" style={{ '--performance-color': color, '--dash-offset': dashOffset } as any}>
-            <div className="CircularProgressBar__progressbar">
-                <svg className='CircularProgressBar__progressbar--svg'>
-                    <circle cx="80" cy="80" r="70" className='CircularProgressBar__progressbar--svg-circle CircularProgressBar__circle-animation'></circle>
-                </svg>
-                <span className='CircularProgressBar__progressbar--text'>{percentage}</span>
-            </div>
+        <div className="CircularProgressBar__progressbar" style={{ '--performance-color': color, '--dash-offset': dashOffset } as any}>
+            <svg className='CircularProgressBar__progressbar--svg'>
+                <circle cx="80" cy="80" r="70" className='CircularProgressBar__progressbar--svg-circle CircularProgressBar__circle-animation'></circle>
+            </svg>
+            <span className='CircularProgressBar__progressbar--text'>{percentage}</span>
         </div>
     );
 }

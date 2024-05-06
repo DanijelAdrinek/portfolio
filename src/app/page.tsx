@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import CodeWrapper from '@/components/codeWrapper/codeWrapper';
 import AnimationController from "@/components/animationController/animationController";
-import Status from "@/components/status/status";
+import AuditResults from '../components/auditResults/AuditResults';
 
 export default function Home() {
 
@@ -14,10 +14,8 @@ export default function Home() {
       <AnimationController>
         <Intro/>
         <Info/>
-        <CodeWrapper />
-        <Status title="HTML" percentage={100}>
-          HTML is awesome
-        </Status>
+        <CodeWrapper/>
+        <AuditResults/>
         <div style={{width: '100%', height: '100vh'}}></div>
       </AnimationController>
     </Suspense>
