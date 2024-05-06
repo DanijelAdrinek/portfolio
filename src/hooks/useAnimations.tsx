@@ -50,7 +50,7 @@ export function useAnimations(): {areAnimationsEnabled: boolean, setAnimations: 
 
     useEffect(() => {
 
-        // set to 2 when testing in development, set to 1 when using in production
+        // in production the site will render less times than in development, this code checks if we are in production or development, and adjusts the code accordingly
         if(numOfRenders.current < 2) {
             numOfRenders.current = numOfRenders.current + 1;
             return;
