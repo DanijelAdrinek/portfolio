@@ -20,3 +20,9 @@ export interface AnimationProps {
 export interface SequentialAnimationProps extends Omit<AnimationProps, 'children'> {
     children: ReactNode[];
 }
+
+export interface LighthouseData {
+    title: string;
+    children: string;
+    percentage: number;
+}
