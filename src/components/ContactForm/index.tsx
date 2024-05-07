@@ -1,14 +1,13 @@
 "use client";
 
 import { sendEmail } from "@/api";
-
 function ContactForm() {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
 
-    const {name, email, message} = event.target as any;
+        const {name, email, message} = event.target as any;
 
-    sendEmail(name.value, email.value, message.value);
+        sendEmail(name.value, email.value, message.value);
 
     };
 
