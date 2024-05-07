@@ -1,6 +1,6 @@
 import React from 'react';
 import { LIGHTHOUSE_DATA } from '@/data';
-import Status from '@/components/status';
+import Status from '@/components/Status';
 import Styles from './styles.module.css';
 
 function AuditResults() {

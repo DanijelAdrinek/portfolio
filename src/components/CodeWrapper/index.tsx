@@ -1,6 +1,6 @@
 import React from 'react';
 import Animation from '@/components/Animation';
-import Code from "@/components/code";
+import Code from "@/components/Code";
 import Styles from "./styles.module.css";
 import { CODE_SIDES } from '@/constants';
 function CodeWrapper() {
