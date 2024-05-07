@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ReactNode } from 'react';
-import Styles from './button.module.css';
+import Styles from './styles.module.css';
 import { BUTTON_SIZES } from '@/constants';
 
 interface ButtonProps {

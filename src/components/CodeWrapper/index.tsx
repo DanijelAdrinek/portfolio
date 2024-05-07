@@ -1,7 +1,7 @@
 import React from 'react';
-import Animation from '@/components/animation/animation';
-import Code from "@/components/code/code";
-import Styles from "./codeWrapper.module.css";
+import Animation from '@/components/Animation';
+import Code from "@/components/code";
+import Styles from "./styles.module.css";
 import { CODE_SIDES } from '@/constants';
 function CodeWrapper() {
     return (

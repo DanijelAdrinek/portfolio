@@ -2,10 +2,10 @@
 
 import React, { useEffect, useState } from 'react';
 import Prism from 'prismjs';
-import Styles from './code.module.css';
+import Styles from './styles.module.css';
 import './prism.css';
 import AOS from 'aos';
-import Animation from '../animation/animation';
+import Animation from '../Animation';
 import { CODE_SIDES, CODE_LANGUAGES } from '@/constants';
 
 type Side = typeof CODE_SIDES[keyof typeof CODE_SIDES];

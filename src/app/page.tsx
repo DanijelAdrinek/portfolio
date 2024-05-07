@@ -1,11 +1,11 @@
-import Info from "@/components/info/info";
-import Intro from "@/components/intro/intro";
+import Info from "@/components/Info";
+import Intro from "@/components/Intro";
 import "aos/dist/aos.css";
 import { Suspense } from "react";
 import Loading from "./loading";
-import CodeWrapper from '@/components/codeWrapper/codeWrapper';
-import AnimationController from "@/components/animationController/animationController";
-import AuditResults from '../components/auditResults/AuditResults';
+import CodeWrapper from '@/components/CodeWrapper';
+import AnimationController from "@/components/AnimationController";
+import AuditResults from '../components/AuditResults';
 
 export default function Home() {
 

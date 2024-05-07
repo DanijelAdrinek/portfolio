@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import styles from './nav.module.css';
+import styles from './styles.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '@public/images/face_black_noBG.svg';

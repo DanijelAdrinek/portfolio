@@ -1,8 +1,8 @@
 import React from 'react';
 import myImage from '@public/images/Danijel_Adrinek_Professional.webp';
 import Image from 'next/image';
-import styles from './info.module.css';
-import Animation from '@/components/animation/animation';
+import styles from './styles.module.css';
+import Animation from '@/components/Animation';
 import InfoClient from './client_info';
 
 const Info = () => {

@@ -5,7 +5,7 @@ import moon from '@public/images/moon_2_smaller.webp';
 import stars from '@public/images/stars.webp';
 import clifs from '@public/images/clifs.webp';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
-import Styles from './intro.module.css';
+import Styles from './styles.module.css';
 import Image from 'next/image';
 
 function Intro() {

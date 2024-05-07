@@ -1,7 +1,7 @@
 "use client";
 
 import React, { ReactElement, useContext } from 'react';
-import { AnimationsContext } from '@/components/animationController/animationController';
+import { AnimationsContext } from '@/components/AnimationController';
 import { AnimationProps } from '@/types';
 
 function Animation({ children, animation, className, offset, delay, easing, once, mirror, anchorPlacement, Tag = "div", }: AnimationProps): ReactElement {

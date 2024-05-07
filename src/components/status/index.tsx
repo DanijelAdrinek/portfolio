@@ -1,5 +1,5 @@
 import React from 'react';
-import Styles from './status.module.css';
+import Styles from './styles.module.css';
 import CircularProgressBar from './CircularProgressBar';
 import { LighthouseData } from '@/types';
 

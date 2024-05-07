@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import SequentialAnimation from '@/components/sequentialAnimation/sequentialAnimation';
+import SequentialAnimation from '@/components/SequentialAnimation';
 import { useMediaQuery } from '@/hooks';
 
 const InfoClient = () => {

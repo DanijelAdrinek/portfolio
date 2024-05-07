@@ -2,8 +2,7 @@
 
 import React, { ReactNode, createContext } from 'react';
 import { useAnimations } from '@/hooks';
-import Button from '@/components/button/button';
-import { BUTTON_SIZES } from '@/constants';
+import Button from '@/components/Button';
 
 interface AnimationControllerProps {
   children: ReactNode;

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { ReactElement } from 'react';
-import Animation from '@/components/animation/animation';
+import Animation from '@/components/Animation';
 import { SequentialAnimationProps } from '@/types';
   
 
