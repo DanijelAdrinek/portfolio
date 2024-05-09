@@ -6,22 +6,10 @@ import { z } from "zod";
 import Styles from './styles.module.css';
 import Button from "../Button";
 
-const isValidFormInfo = z.object({
-    name: z.string(),
-    email: z.string().email(),
-    message: z.string().min(1)
-});
-
 interface State {
     name: string;
     email: string;
     message: string;
-}
-
-const ACTIONS = {
-    name: 'name',
-    email: 'email',
-    message: 'message'
 }
 
 type ActionType = typeof ACTIONS[keyof typeof ACTIONS];
@@ -31,39 +19,62 @@ interface Action {
     payload: string;
 }
 
+const ACTIONS = {
+    name: 'name',
+    email: 'email',
+    message: 'message',
+    reset: 'reset'
+}
+
+
+const isValidFormInfo = z.object({
+    name: z.string(),
+    email: z.string().email(),
+    message: z.string().min(1)
+});
+
 function reducer(state: State, action: Action) {
 
     switch (action.type) {
-      case ACTIONS.name:
-        return { ...state, name: action.payload };
-      case ACTIONS.email:
-        return { ...state, email: action.payload };
-      case ACTIONS.message:
-        return { ...state, message: action.payload };
-      default:
-        return state;
+        case ACTIONS.name:
+            return { ...state, name: action.payload };
+        case ACTIONS.email:
+            return { ...state, email: action.payload };
+        case ACTIONS.message:
+            return { ...state, message: action.payload };
+        case ACTIONS.reset:
+            return { name: '', email: '', message: '' };
+        default:
+            return state;
     }
   }
+
 function ContactForm() {
 
-    let [isButtonEnabled, setIsButtonEnabled] = useState(false);
+    const [isButtonEnabled, setIsButtonEnabled] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const [state, dispatch] = useReducer(reducer, { name: '', email: '', message: '' });
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         const {name, email, message} = event.target as any;
 
-        sendEmail(name.value, email.value, message.value);
+        setIsLoading(true);
+        const response = await sendEmail(name.value, email.value, message.value)
+        setIsLoading(false)
 
+        if (response.success === "true") {
+            dispatch({ type: ACTIONS.reset, payload: '' });
+        };
+
+        alert(response.message);
     };
 
     const handleInputChange = (event : React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 
         const name = event.target.name as keyof typeof ACTIONS;
-
-        console.log(name);
 
         dispatch({
             type: ACTIONS[name],
@@ -83,17 +94,17 @@ function ContactForm() {
         <form className={Styles.form} onSubmit={handleSubmit}>
             <div className={Styles.formGroup}>
                 <label htmlFor="name">Full Name:</label>
-                <input type="text" name="name" id="name" onChange={handleInputChange} className={Styles.name} placeholder="John Doe"/>
+                <input type="text" name="name" id="name" value={state.name} onChange={handleInputChange} className={Styles.name} placeholder="John Doe"/>
             </div>
             <div className={Styles.formGroup}>
                 <label htmlFor="email">Email*:</label>
-                <input type="email" name="email" id="email" className={Styles.email} onChange={handleInputChange} placeholder="john@doe.email" required />
+                <input type="email" name="email" id="email" value={state.email} className={Styles.email} onChange={handleInputChange} placeholder="john@doe.email" required />
             </div>
             <div className={`${Styles.formGroup} ${Styles.messageContainer}`}>
                 <label htmlFor="message">Message*:</label>
-                <textarea name="message" id="message" className={Styles.message} onChange={handleInputChange} placeholder="Your message" required />
+                <textarea name="message" id="message" value={state.message} className={Styles.message} onChange={handleInputChange} placeholder="Your message" required />
             </div>
-            <Button buttonType="submit" disabled={!isButtonEnabled}>Send</Button>
+            <Button buttonType="submit" disabled={!isButtonEnabled}>{isLoading ? 'Loading...' : 'Send'}</Button>
         </form>
     </section>
   );

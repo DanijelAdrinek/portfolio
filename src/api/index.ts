@@ -3,7 +3,7 @@ const formSubmitUrl = `https://formsubmit.co/ajax/${linkToGmail}`;
 
 export function sendEmail(name: string, email: string, message: string) {
 
-    fetch(formSubmitUrl, {
+    return fetch(formSubmitUrl, {
         method: "POST",
         headers: { 
             'Content-Type': 'application/json',
@@ -15,7 +15,7 @@ export function sendEmail(name: string, email: string, message: string) {
         })
     })
     .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.log(error));
+    .then(data => data)
+    .catch(error => error);
 
 }
