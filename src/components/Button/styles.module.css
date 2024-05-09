@@ -33,6 +33,7 @@
   width: auto;
   word-break: keep-all;
   z-index: 0;
+  transition: all 0.4s ease-in-out;
 }
 
 .btn.btn-small {
@@ -121,5 +122,5 @@
 
 .btn:disabled {
   cursor: default;
-  opacity: .24;
+  opacity: .55;
 }
