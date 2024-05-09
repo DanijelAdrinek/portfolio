@@ -4,22 +4,29 @@ import React, { ReactNode } from 'react';
 import Styles from './styles.module.css';
 import { BUTTON_SIZES } from '@/constants';
 
+type Size = typeof BUTTON_SIZES[keyof typeof BUTTON_SIZES];
+
 interface ButtonProps {
     children: ReactNode;
-    clickFunction: Function;
+    clickFunction?: Function;
     className?: string;
-    size?: string;
+    buttonType?: string;
+    size?: Size;
     color?: string;
     backgroundColor?: string;
     border?: string;
 }
 
-type Size = typeof BUTTON_SIZES[keyof typeof BUTTON_SIZES];
-
-function Button({children, clickFunction, className, size, color, backgroundColor, border} : ButtonProps) { 
+function Button({children, clickFunction, buttonType, className, size, color, backgroundColor, border} : ButtonProps) { 
 
     return (
-        <button className={`${Styles.btn} ${size && Styles[size]} ${className}`} onClick={() => clickFunction()} style={{color: color, backgroundColor: backgroundColor, border: border}}>
+        <button className={`${Styles.btn} ${size && Styles[size]} ${className}`}
+            // if clickFunction is given add onClick property
+            {...(clickFunction && { onClick: () => clickFunction() })} 
+            // if type is given, add type property
+            {...(buttonType && { type: buttonType as any })}
+            style={{color: color, backgroundColor: backgroundColor, border: border}}
+        >
             {children}
         </button>
     );

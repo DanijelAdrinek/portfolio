@@ -22,6 +22,7 @@ body {
   margin: 0;
   max-width: 100lvw;
   overflow-x: hidden;
+  color: var(--text-primary);
 }
 
 .content-container {
