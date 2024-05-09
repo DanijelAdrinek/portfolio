@@ -7,6 +7,7 @@ import CodeWrapper from '@/components/CodeWrapper';
 import AnimationController from "@/components/AnimationController";
 import AuditResults from '../components/AuditResults';
 import ContactForm from "@/components/ContactForm";
+import Footer from "@/components/Footer";
 
 export default function Home() {
 
@@ -20,6 +21,7 @@ export default function Home() {
         <div style={{width: '100%', height: '100vh'}}></div>
         <ContactForm/>
       </AnimationController>
+      <Footer/>
     </Suspense>
   );
 }

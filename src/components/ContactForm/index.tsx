@@ -89,7 +89,7 @@ function ContactForm() {
 
   return (
     <section className={Styles.container}>
-        <h2 className={Styles.title}>Contact Me</h2>
+        <h1 className='title'>Contact Me</h1>
         <p className={Styles.formInstructions}>Necessary fields are marked with a *</p>
         <form className={Styles.form} onSubmit={handleSubmit}>
             <div className={Styles.formGroup}>

@@ -1,0 +1,33 @@
+.info__infoCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 33px 0 33px 39px;
+    width: 100%;
+    border-radius: 20px;
+    background-color: var(--secondary-color);
+  }
+  
+  /* Animations */
+  .info__infoCard.aos-animate .anim-typewriter {
+    animation: typewriter 4s steps(40) 1s 1 normal both,
+    blinkTextCursor 500ms steps(40) infinite normal;
+  }
+  
+  @keyframes typewriter {
+    from {
+          width: 0;
+    }
+    to {
+          width: 16em;
+    }
+  }
+  
+  @keyframes blinkTextCursor {
+    from {
+          border-right-color: rgba(255, 255, 255, 0.75);
+    }
+    to {
+          border-right-color: transparent;
+    }
+  }

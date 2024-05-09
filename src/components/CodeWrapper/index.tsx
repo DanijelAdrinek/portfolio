@@ -6,7 +6,7 @@ import { CODE_SIDES } from '@/constants';
 function CodeWrapper() {
     return (
         <section className={Styles.wrapper}>
-            <Animation className={Styles.sectionTitle} Tag='h3' animation='fade-up'> Some examples of my code </Animation>
+            <Animation className='title' Tag='h1' animation='fade-up'> Some examples of my code </Animation>
             <Code note="useAnimations hook:">
             {
 `    

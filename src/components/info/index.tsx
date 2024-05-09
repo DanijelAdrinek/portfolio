@@ -4,6 +4,7 @@ import Image from 'next/image';
 import styles from './styles.module.css';
 import Animation from '@/components/Animation';
 import InfoClient from './client_info';
+import './info.css';
 
 const Info = () => {
 
@@ -12,7 +13,7 @@ const Info = () => {
     return (
         <section className={styles.intro}>
             <Animation animation='fade-up' delay={50} anchorPlacement='top-bottom'>
-                <h1 className={styles.sectionTitle}>WEB DEVELOPER</h1>
+                <h1 className='title'>WEB DEVELOPER</h1>
             </Animation>
             <div className={styles.content}>
                 

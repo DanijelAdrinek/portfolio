@@ -1,4 +1,4 @@
-.container {
+.statusContainer {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;
@@ -7,12 +7,12 @@
     align-items: stretch;
 }
 
-.container > * {
+.statusContainer > * {
     align-self: stretch;
 }
 
 @media screen and (min-width: 768px) {
-    .container {
+    .statusContainer {
         grid-template-columns: 1fr 1fr;
     }
 }

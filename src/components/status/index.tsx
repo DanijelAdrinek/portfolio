@@ -7,7 +7,7 @@ import { LighthouseData } from '@/types';
 function Status({title, children, percentage}: LighthouseData) {
     return (
         <article className={`status ${Styles.container}`} data-aos="fade-up">
-            <h3 className={Styles.title}>{title}</h3>
+            <h1 className='title'>{title}</h1>
                 <CircularProgressBar percentage={percentage}/>
             <p className={Styles.description}>{children}</p>
         </article>
