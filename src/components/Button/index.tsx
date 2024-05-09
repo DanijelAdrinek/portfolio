@@ -13,11 +13,12 @@ interface ButtonProps {
     buttonType?: string;
     size?: Size;
     color?: string;
+    disabled?: boolean;
     backgroundColor?: string;
     border?: string;
 }
 
-function Button({children, clickFunction, buttonType, className, size, color, backgroundColor, border} : ButtonProps) { 
+function Button({children, clickFunction, buttonType, className, size, color, disabled = false, backgroundColor, border} : ButtonProps) { 
 
     return (
         <button className={`${Styles.btn} ${size && Styles[size]} ${className}`}
@@ -25,6 +26,7 @@ function Button({children, clickFunction, buttonType, className, size, color, ba
             {...(clickFunction && { onClick: () => clickFunction() })} 
             // if type is given, add type property
             {...(buttonType && { type: buttonType as any })}
+            disabled={disabled}
             style={{color: color, backgroundColor: backgroundColor, border: border}}
         >
             {children}
