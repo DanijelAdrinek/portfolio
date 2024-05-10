@@ -5,6 +5,7 @@ import { sendEmail } from "@/api";
 import { z } from "zod";
 import Styles from './styles.module.css';
 import Button from "../Button";
+import { IDs } from "@/constants";
 
 interface State {
     name: string;
@@ -88,23 +89,23 @@ function ContactForm() {
     }, [state])
 
   return (
-    <section className={Styles.container}>
+    <section id={IDs.contactForm} className={Styles.container}>
         <h1 className='title'>Contact Me</h1>
         <p className={Styles.formInstructions}>Necessary fields are marked with a *</p>
         <form className={Styles.form} onSubmit={handleSubmit}>
             <div className={Styles.formGroup}>
-                <label htmlFor="name">Full Name:</label>
-                <input type="text" name="name" id="name" value={state.name} onChange={handleInputChange} className={Styles.name} placeholder="John Doe"/>
+                <label htmlFor='name'>Full Name:</label>
+                <input type='text' name='name' id='name' value={state.name} onChange={handleInputChange} className={Styles.name} placeholder='John Doe'/>
             </div>
             <div className={Styles.formGroup}>
-                <label htmlFor="email">Email*:</label>
-                <input type="email" name="email" id="email" value={state.email} className={Styles.email} onChange={handleInputChange} placeholder="john@doe.email" required />
+                <label htmlFor='email'>Email*:</label>
+                <input type='email' name='email' id='email' value={state.email} className={Styles.email} onChange={handleInputChange} placeholder='john@doe.email' required />
             </div>
             <div className={`${Styles.formGroup} ${Styles.messageContainer}`}>
-                <label htmlFor="message">Message*:</label>
-                <textarea name="message" id="message" value={state.message} className={Styles.message} onChange={handleInputChange} placeholder="Your message" required />
+                <label htmlFor='message'>Message*:</label>
+                <textarea name='message' id='message' value={state.message} className={Styles.message} onChange={handleInputChange} placeholder='Your message' required />
             </div>
-            <Button buttonType="submit" disabled={!isButtonEnabled}>{isLoading ? 'Loading...' : 'Send'}</Button>
+            <Button buttonType='submit' disabled={!isButtonEnabled}>{isLoading ? 'Loading...' : 'Send'}</Button>
         </form>
     </section>
   );

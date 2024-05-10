@@ -5,13 +5,14 @@ import styles from './styles.module.css';
 import Animation from '@/components/Animation';
 import InfoClient from './client_info';
 import './info.css';
+import { IDs } from '../../constants/IDs';
 
 const Info = () => {
 
     const delay = 450
     
     return (
-        <section className={styles.intro}>
+        <section id={IDs.info} className={styles.intro}>
             <Animation animation='fade-up' delay={50} anchorPlacement='top-bottom'>
                 <h1 className='title'>WEB DEVELOPER</h1>
             </Animation>

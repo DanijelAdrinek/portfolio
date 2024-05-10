@@ -2,10 +2,10 @@ import React from 'react';
 import Animation from '@/components/Animation';
 import Code from "@/components/Code";
 import Styles from "./styles.module.css";
-import { CODE_SIDES } from '@/constants';
+import { CODE_SIDES, IDs } from '@/constants';
 function CodeWrapper() {
     return (
-        <section className={Styles.wrapper}>
+        <section id={IDs.code} className={Styles.wrapper}>
             <Animation className='title' Tag='h1' animation='fade-up'> Some examples of my code </Animation>
             <Code note="useAnimations hook:">
             {

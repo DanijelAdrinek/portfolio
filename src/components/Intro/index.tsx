@@ -7,12 +7,13 @@ import clifs from '@public/images/clifs.webp';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import Styles from './styles.module.css';
 import Image from 'next/image';
+import { IDs } from '@/constants';
 
 function Intro() {
 
     return (
         <>
-            <Parallax className={Styles.parallax} pages={1.8}>
+            <Parallax id={IDs.intro} className={Styles.parallax} pages={1.8}>
                 <ParallaxLayer
                     className={Styles.background}
                     factor={2.5}
