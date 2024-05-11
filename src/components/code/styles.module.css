@@ -7,12 +7,13 @@
 .editor {
     border-radius: 20px;
     overflow: hidden;
-    width: calc(100% - 20%);
-    max-width: 550px;
+    width: 80%;
+    max-width: 800px;
+    transition: max-width 0.6s ease-in-out;
 }
 
 .editor.open {
-    max-width: max(550px, 50%);
+    max-width: max(550px, 80%);
 }
 
 .left {
