@@ -1,7 +1,7 @@
 "use client";
 
-import React, { ReactNode, createContext } from 'react';
-import { useAnimations } from '@/hooks';
+import React, { ReactNode, createContext, useEffect } from 'react';
+import { useAnimations, useMediaQuery } from '@/hooks';
 import Button from '@/components/Button';
 
 interface AnimationControllerProps {
@@ -12,16 +12,27 @@ export const AnimationsContext = createContext(false);
 
 function AnimationController({ children }: AnimationControllerProps) {
 
-    const {areAnimationsEnabled, setAnimations} = useAnimations();
+    const isMobile = useMediaQuery('(max-width: 767px)');
 
-    const toggleAnimations = () => setAnimations(!areAnimationsEnabled);
+    const {areAnimationsEnabled, setAnimations, setIsMobile} = useAnimations();
+    
+    // const toggleAnimations = () => setAnimations(!areAnimationsEnabled);
+    
+    useEffect(() => {
+        console.log(isMobile);
+        setIsMobile(isMobile);
+    },
+    // eslint-disable-next-line
+    [isMobile]);
+
+    const shouldAnimate = (areAnimationsEnabled && !isMobile) ? true : false;
 
     return (
         <main>
-            <AnimationsContext.Provider value={areAnimationsEnabled}>
+            <AnimationsContext.Provider value={shouldAnimate}>
                 {children}
             </AnimationsContext.Provider>
-            <Button clickFunction={toggleAnimations}>TOGGLE ANIMATIONS!</Button>
+            {/* <Button clickFunction={toggleAnimations}>TOGGLE ANIMATIONS!</Button> */}
         </main>
     );
 }

@@ -7,7 +7,7 @@ import { useMediaQuery } from '@/hooks';
 
 const InfoClient = () => {
 
-    const isMobile = useMediaQuery('(max-width: 767px)')
+    const isMobile = useMediaQuery('(max-width: 767px)');
     const sequenceDelay = isMobile ? -200 : 0;
 
     return (

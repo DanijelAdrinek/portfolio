@@ -2,6 +2,10 @@
     stroke-dashoffset: var(--dash-offset);
 }
 
+.status[data-aos=none] .CircularProgressBar__circle-animation {
+    stroke-dashoffset: var(--dash-offset);
+}
+
 .CircularProgressBar__container--progressbars {
     display: flex;
     justify-content: space-around;
