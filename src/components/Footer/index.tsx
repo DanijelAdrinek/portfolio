@@ -6,7 +6,7 @@ import FooterInfo from './FooterInfo';
 
 function Footer() {
     return (
-        <footer className={Styles.footer}>
+        <footer className={`section ${Styles.footer}`}>
             <FooterInfo/>
             <FooterSocials/>
             <FooterSectionLinks/>

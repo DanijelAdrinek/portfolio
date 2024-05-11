@@ -18,7 +18,6 @@ export default function Home() {
         <Info/>
         <CodeWrapper/>
         <AuditResults/>
-        <div style={{width: '100%', height: '100vh'}}></div>
         <ContactForm/>
       </AnimationController>
       <Footer/>

@@ -6,7 +6,7 @@ import { IDs } from '@/constants';
 
 function AuditResults() {
     return (
-        <section id={IDs.statistics}>   
+        <section id={IDs.statistics} className='section'>   
             <h1 className='title'>Statistics</h1>
             <div className={Styles.statusContainer}>
             {LIGHTHOUSE_DATA.map(score => (

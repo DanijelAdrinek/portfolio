@@ -26,7 +26,7 @@ function FooterSectionLinks() {
 
     return (
         <div>
-            <h3>Sections:</h3>
+            <h2>Sections:</h2>
             <ul>
                 { values.map(id => <li key={id}><a href={`#${id}`}>{idToText(id)}</a></li>) }
             </ul>

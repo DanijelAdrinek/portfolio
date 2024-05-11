@@ -5,7 +5,7 @@ import Styles from "./styles.module.css";
 import { CODE_SIDES, IDs } from '@/constants';
 function CodeWrapper() {
     return (
-        <section id={IDs.code} className={Styles.wrapper}>
+        <section id={IDs.code} className='section'>
             <Animation className='title' Tag='h1' animation='fade-up'> Some examples of my code </Animation>
             <Code note="useAnimations hook:">
             {

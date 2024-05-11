@@ -12,7 +12,7 @@ const Info = () => {
     const delay = 450
     
     return (
-        <section id={IDs.info} className={styles.intro}>
+        <section id={IDs.info} className={`section ${styles.intro}`}>
             <Animation animation='fade-up' delay={50} anchorPlacement='top-bottom'>
                 <h1 className='title'>WEB DEVELOPER</h1>
             </Animation>

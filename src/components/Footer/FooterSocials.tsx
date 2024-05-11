@@ -7,7 +7,7 @@ function FooterSocials() {
 
     return (
         <div>
-            <h3>Socials:</h3>
+            <h2>Socials:</h2>
             <p>
                 <a href="https://www.github.com/DanijelAdrinek" target="_blank" rel="noreferrer">
                     <picture>

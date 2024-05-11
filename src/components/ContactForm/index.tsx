@@ -89,7 +89,7 @@ function ContactForm() {
     }, [state])
 
   return (
-    <section id={IDs.contactForm} className={Styles.container}>
+    <section id={IDs.contactForm} className={`${Styles.container} section`}>
         <h1 className='title'>Contact Me</h1>
         <p className={Styles.formInstructions}>Necessary fields are marked with a *</p>
         <form className={Styles.form} onSubmit={handleSubmit}>
