@@ -1,5 +1,5 @@
 .container {
-    width: calc(100px + 45%);
+    width: calc(100px + 65%);
     max-width: calc(100% - 76px);
     margin: 5rem auto 0;
 }
@@ -18,6 +18,9 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
+    padding: 2rem;
+    background-color: var(--secondary-color);
+    border-radius: 25px;
 }
 
 .formGroup {
