@@ -2,7 +2,7 @@
     stroke-dashoffset: var(--dash-offset);
 }
 
-.status[data-aos=none] .CircularProgressBar__circle-animation {
+.status[data-aos='none'] .CircularProgressBar__circle-animation, .status:not([data-aos]) .CircularProgressBar__circle-animation {
     stroke-dashoffset: var(--dash-offset);
 }
 
