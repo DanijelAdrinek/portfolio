@@ -4,7 +4,7 @@ import React, { ReactElement, useContext } from 'react';
 import { AnimationsContext } from '@/components/AnimationController';
 import { AnimationProps } from '@/types';
 
-function Animation({ children, animation, className, offset, delay, easing, once, mirror, anchorPlacement, Tag = "div", }: AnimationProps): ReactElement {
+function Animation({ children, animation, offset, delay, easing, once, mirror, anchorPlacement, Tag = "div", ...props}: AnimationProps): ReactElement {
 
     const isEnabled = useContext(AnimationsContext);
 
@@ -19,7 +19,7 @@ function Animation({ children, animation, className, offset, delay, easing, once
     } : {'data-aos': 'none'});
 
   return (
-    <Tag {...aosProps} className={className}>
+    <Tag {...aosProps} {...props}>
         {children}
     </Tag>
   );

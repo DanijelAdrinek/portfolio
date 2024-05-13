@@ -1,6 +1,5 @@
-.sectionTitle {
-    font-size: 2rem;
-    text-align: center;
-    margin: 2rem;
+.codeContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 4.5rem;
 }
-

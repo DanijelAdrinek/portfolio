@@ -34,7 +34,6 @@ export function useAnimations(): {areAnimationsEnabled: boolean, setAnimations: 
 
     
     function _handleAnimationStatus(shouldBeEnabled: boolean) {
-        console.log('handleAnimations, isMobile: ', !isMobile);
         if(shouldBeEnabled && !isMobile) {
             _enableAnimations();
         } else {

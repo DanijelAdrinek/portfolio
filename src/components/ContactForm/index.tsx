@@ -6,6 +6,7 @@ import { z } from "zod";
 import Styles from './styles.module.css';
 import Button from "../Button";
 import { IDs } from "@/constants";
+import Animation from "@/components/Animation";
 
 interface State {
     name: string;
@@ -90,9 +91,9 @@ function ContactForm() {
 
   return (
     <section id={IDs.contactForm} className={`${Styles.container} section`}>
-        <h1 className='title'>Contact Me</h1>
-        <p className={Styles.formInstructions}>Necessary fields are marked with a *</p>
-        <form className={Styles.form} onSubmit={handleSubmit}>
+        <Animation animation='fade-up' Tag='h1' className='title'>Contact Me</Animation>
+        <Animation animation='fade-up' Tag='p' className={Styles.formInstructions}>Necessary fields are marked with a *</Animation>
+        <Animation animation='fade-up' Tag='form' className={Styles.form} onSubmit={handleSubmit}>
             <div className={Styles.formGroup}>
                 <label htmlFor='name'>Full Name:</label>
                 <input type='text' name='name' id='name' value={state.name} onChange={handleInputChange} className={Styles.name} placeholder='John Doe'/>
@@ -106,7 +107,7 @@ function ContactForm() {
                 <textarea name='message' id='message' value={state.message} className={Styles.message} onChange={handleInputChange} placeholder='Your message' required />
             </div>
             <Button buttonType='submit' disabled={!isButtonEnabled}>{isLoading ? 'Loading...' : 'Send'}</Button>
-        </form>
+        </Animation>
     </section>
   );
 }

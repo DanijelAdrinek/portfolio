@@ -15,6 +15,7 @@ export interface AnimationProps {
     mirror?: boolean;
     anchorPlacement?: string;
     Tag?: keyof JSX.IntrinsicElements;
+    [key: string]: any;
 }
 
 export interface SequentialAnimationProps extends Omit<AnimationProps, 'children'> {

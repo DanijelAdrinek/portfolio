@@ -19,7 +19,6 @@ function AnimationController({ children }: AnimationControllerProps) {
     // const toggleAnimations = () => setAnimations(!areAnimationsEnabled);
     
     useEffect(() => {
-        console.log(isMobile);
         setIsMobile(isMobile);
     },
     // eslint-disable-next-line
