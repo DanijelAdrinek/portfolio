@@ -25,7 +25,7 @@ const Info = () => {
                     <h2 className={`anim-typewriter ${styles.name}`}>Danijel Adrinek</h2>
                     <div className={styles.aboutMe}>
                         <h3 className={styles.title}>About me</h3>
-                        <p className={styles.text}>I am a passionate web developer with a keen eye for details.</p> <p className={styles.text}>I transform your designs designs into pixel-perfect web solutions while keeping the websites SEO optimized, easy to use, and written in clean, easily managable code.</p>
+                        <p className={styles.text}>I am a passionate web developer with a keen eye for details.</p> <p className={styles.text}>I transform your designs into pixel-perfect web solutions while keeping the websites SEO optimized, easy to use, and written in clean, easily managable code.</p>
                     </div>
                 </Animation>
 
