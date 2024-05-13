@@ -1,5 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
+import Github from '@public/images/github-mark-white.svg';
+import Linkedin from '@public/images/In-Blue-40.png';
 
 function FooterSocials() {
 
@@ -11,12 +13,12 @@ function FooterSocials() {
             <p>
                 <a href="https://www.github.com/DanijelAdrinek" target="_blank" rel="noreferrer">
                     <picture>
-                        <Image height={imageSize} width={imageSize} alt='Github' src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github.svg"/>
+                        <Image height={imageSize} width={imageSize} alt='Github' src={Github.src}/>
                     </picture>
                 </a>
                 <a href="https://www.linkedin.com/in/danijel-adrinek-502237227" target="_blank" rel="noreferrer">
                     <picture>
-                        <Image height={imageSize} width={imageSize} alt='Linkedin' src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/linkedin.svg"/>
+                        <Image height={imageSize} width={imageSize} alt='Linkedin' src={Linkedin.src}/>
                     </picture>
                 </a>
             </p>
