@@ -5,7 +5,7 @@ import Animation from '@/components/Animation';
 import { SequentialAnimationProps } from '@/types';
   
 
-function SequentialAnimation({ children, delay = 100, ...props }: SequentialAnimationProps): ReactElement {
+function SequentialAnimation({ children, delay = 100, animation='fade-up', ...props }: SequentialAnimationProps): ReactElement {
     const childrenArray = React.Children.toArray(children);
 
     return (
@@ -14,6 +14,7 @@ function SequentialAnimation({ children, delay = 100, ...props }: SequentialAnim
                 return (
                     <Animation
                         {...props}
+                        animation={animation}
                         delay={index * delay}
                         key={index}
                     >
