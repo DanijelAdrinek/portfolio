@@ -1,7 +1,7 @@
 # 🚀 NextJS Portfolio
-This portfolio was made for me to be able to showcase my experience using the NextJS framework, it was launched using vercel on this url:
+This portfolio was made for me to be able to showcase my experience using the NextJS framework, it was launched using vercel.
 
-[portfolio-flax-tau-90.vercel.app](portfolio-flax-tau-90.vercel.app)
+### Live website: [portfolio-flax-tau-90.vercel.app](portfolio-flax-tau-90.vercel.app)
 
 ![To-do app](./public/images/preview.webp "Screenshot of the Portfolio")
 
