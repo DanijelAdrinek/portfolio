@@ -1,0 +1,137 @@
+.nav {
+    /* VARIABLES */
+
+    --nav-height: 60px;
+    --nav-text-color: #AAA;
+    --nav-font-size: 1.5rem;
+    --trapezoid-sides-length: 80px;
+
+    /* CODE */
+    width: 80%;
+    max-width: calc(100% - (var(--trapezoid-sides-length) * 2));
+    height: 0;
+    position: relative;
+    top: 0;
+    left: 50%;
+    border-bottom: var(--nav-height) solid var(--primary-color);
+    border-left: var(--trapezoid-sides-length) solid transparent;
+    border-right: var(--trapezoid-sides-length) solid transparent;
+    border-top: 1px solid #000000;
+    transform: translateX(-50%) rotate(180deg);
+}
+
+.nav-content-container {
+    transform: rotate(180deg);
+    height: var(--nav-height);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    transform: translateY(-100%);
+    width: 100%;
+    background-color: var(--primary-color);
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.nav-links > a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    text-decoration: none;
+    padding: 20px;
+    font-size: var(--nav-font-size);
+}
+
+.nav-links > a:hover {
+    background-color: var(--primary-color);
+}
+
+.menu-btn-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+.menu-btn,
+.menu-btn::before,
+.menu-btn::after {
+    display: block;
+    background-color: var(--details-primary);
+    position: absolute;
+    height: 2px;
+    width: 24px;
+    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    border-radius: 2px;
+}
+
+.menu-btn::before {
+    content: '';
+    margin-top: -8px;
+}
+
+.menu-btn::after {
+    content: '';
+    margin-top: 8px;
+}
+
+.nav-links.open {
+    /* We need to add * -1 because the parent is rotated by 180deg and the child will go in the opposite direction from intended without it*/ 
+    top: calc(var(--nav-height) + 44px);
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.nav-links.open ~ .menu-btn-container .menu-btn::before {
+    margin-top: 0px;
+    transform: rotate(405deg);
+}
+
+.nav-links.open ~ .menu-btn-container .menu-btn {
+    background: transparent;
+}
+
+.nav-links.open ~ .menu-btn-container .menu-btn::after {
+    margin-top: 0px;
+    transform: rotate(-405deg);
+}
+
+@media screen and (min-width: 768px) {
+    .nav-links{
+        position: relative;
+        flex-direction: row;
+        transform: none;
+        opacity: 1;
+        background-color: transparent;
+        justify-content: flex-end;
+        gap: 0;
+        border-radius: 0;
+        height: 100%;
+    }
+    
+    .nav-links > a {
+        height: 100%;
+        border-radius: 10px;
+        font-size: 1.6rem;
+    }
+}
