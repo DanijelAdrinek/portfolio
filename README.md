@@ -30,7 +30,9 @@ $ git clone https://github.com/DanijelAdrinek/portfolio.git
 $ npm install
 ```
 
-3. run app
+3. Create .env.local file, and follow the instructions from .env.example file to make form work on your website
+
+4. run app
 ```
 $ npm run dev
 ```
