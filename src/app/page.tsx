@@ -12,7 +12,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
 
   return (
-    <Suspense fallback={<Loading/>}>
+    <>
       <AnimationController>
         <Intro/>
         <Info/>
@@ -21,6 +21,6 @@ export default function Home() {
         <ContactForm/>
       </AnimationController>
       <Footer/>
-    </Suspense>
+    </>
   );
 }

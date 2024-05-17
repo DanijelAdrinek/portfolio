@@ -53,7 +53,7 @@ function reducer(state: State, action: Action) {
 
 function ContactForm() {
 
-    const [isButtonEnabled, setIsButtonEnabled] = useState(false);
+    const [isValidInfo, setIsValidInfo] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
     const [state, dispatch] = useReducer(reducer, { name: '', email: '', message: '' });
@@ -86,7 +86,7 @@ function ContactForm() {
 
     useEffect(() => {
         // checks if user input is valid and if submit button should be enabled
-        setIsButtonEnabled(isValidFormInfo.safeParse(state).success);
+        setIsValidInfo(isValidFormInfo.safeParse(state).success);
     }, [state])
 
   return (
@@ -106,7 +106,7 @@ function ContactForm() {
                 <label htmlFor='message'>Message*:</label>
                 <textarea name='message' id='message' value={state.message} className={Styles.message} onChange={handleInputChange} placeholder='Your message' required />
             </div>
-            <Button buttonType='submit' disabled={!isButtonEnabled}>{isLoading ? 'Loading...' : 'Send'}</Button>
+            <Button buttonType='submit' disabled={(!isValidInfo || isLoading)}>{isLoading ? 'Loading...' : 'Send'}</Button>
         </Animation>
     </section>
   );
