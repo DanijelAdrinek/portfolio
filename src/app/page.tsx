@@ -2,7 +2,6 @@ import Info from "@/components/Info";
 import Intro from "@/components/Intro";
 import "aos/dist/aos.css";
 import { Suspense } from "react";
-import Loading from "./loading";
 import CodeWrapper from '@/components/CodeWrapper';
 import AnimationController from "@/components/AnimationController";
 import AuditResults from '../components/AuditResults';
