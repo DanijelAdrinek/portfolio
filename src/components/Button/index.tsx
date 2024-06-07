@@ -8,6 +8,7 @@ type Size = typeof BUTTON_SIZES[keyof typeof BUTTON_SIZES];
 
 interface ButtonProps {
     children: ReactNode;
+    id?: string;
     clickFunction?: Function;
     className?: string;
     buttonType?: string;
@@ -18,10 +19,10 @@ interface ButtonProps {
     border?: string;
 }
 
-function Button({children, clickFunction, buttonType, className, size, color, disabled = false, backgroundColor, border} : ButtonProps) { 
+function Button({children, clickFunction, buttonType, id, className, size, color, disabled = false, backgroundColor, border} : ButtonProps) { 
 
     return (
-        <button className={`${Styles.btn} ${size && Styles[size]} ${className}`}
+        <button id={id} className={`${Styles.btn} ${size && Styles[size]} ${className}`}
             // if clickFunction is given add onClick property
             {...(clickFunction && { onClick: () => clickFunction() })} 
             // if type is given, add type property

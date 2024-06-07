@@ -2,7 +2,6 @@
 
 import React, { ReactNode, createContext, useEffect } from 'react';
 import { useAnimations, useMediaQuery } from '@/hooks';
-import Button from '@/components/Button';
 
 interface AnimationControllerProps {
   children: ReactNode;
@@ -14,7 +13,7 @@ function AnimationController({ children }: AnimationControllerProps) {
 
     const isMobile = useMediaQuery('(max-width: 767px)');
 
-    const {areAnimationsEnabled, setAnimations, setIsMobile} = useAnimations();
+    const {areAnimationsEnabled, setIsMobile} = useAnimations();
     
     // const toggleAnimations = () => setAnimations(!areAnimationsEnabled);
     

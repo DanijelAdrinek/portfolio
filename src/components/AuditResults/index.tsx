@@ -7,7 +7,7 @@ import Animation from '@/components/Animation';
 
 function AuditResults() {
     return (
-        <section id={IDs.statistics} className='section'>   
+        <section id={IDs.statistics} className='section'>
             <Animation className='title' animation='fade-up' Tag='h1'>Statistics</Animation>
             <div className={Styles.statusContainer}>
             {LIGHTHOUSE_DATA.map(score => (
