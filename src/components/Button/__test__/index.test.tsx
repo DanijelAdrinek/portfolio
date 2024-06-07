@@ -63,3 +63,11 @@ it("Should change text content of button if button is clicked", () => {
 
   expect(buttonElement);
 });
+
+it("Should give button a type of submit", () => {
+  render(<Button>Hello World</Button>);
+
+  const buttonElement = screen.getByRole('button', { target: { type: 'submit'} });
+
+  expect(buttonElement);
+})
