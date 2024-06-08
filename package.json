@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "vitest",
+    "test": "vitest --coverage",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -28,6 +28,7 @@
     "@types/prismjs": "^1.26.3",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@vitest/coverage-v8": "^1.6.0",
     "eslint": "^8",
     "eslint-config-next": "^14.2.3",
     "jsdom": "^24.1.0",
