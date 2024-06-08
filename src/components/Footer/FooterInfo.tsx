@@ -6,7 +6,7 @@ function FooterInfo() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <div>
+        <div data-testid="footer-info">
             <p className={Styles.currentYear}>{currentYear}</p>
             <p className={Styles.name}>Danijel Adrinek</p>
             <p>Web Developer</p>

@@ -25,7 +25,7 @@ function FooterSectionLinks() {
     const values = Object.values(IDs);
 
     return (
-        <div>
+        <div data-testid="footer-section-links">
             <h2>Sections:</h2>
             <ul>
                 { values.map(id => <li key={id}><a href={`#${id}`}>{idToText(id)}</a></li>) }

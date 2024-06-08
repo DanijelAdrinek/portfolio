@@ -8,7 +8,7 @@ function FooterSocials() {
     const imageSize = 40;
 
     return (
-        <div>
+        <div data-testid="footer-socials">
             <h2>Socials:</h2>
             <p>
                 <a href="https://www.github.com/DanijelAdrinek" target="_blank" rel="noreferrer">
