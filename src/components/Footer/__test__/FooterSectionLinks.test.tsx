@@ -3,17 +3,17 @@
   import { render, screen } from "@testing-library/react";
   import { IDs } from "@/constants";
 
-  it('Should render FooterSectionLinks component', () => {
+  beforeEach(() => {
     render(<FooterSectionLinks />);
+  });
 
+  it('Should render FooterSectionLinks component', () => {
     const footerSectionLinksComponent = screen.getByTestId('footer-section-links');
 
     expect(footerSectionLinksComponent).toBeDefined();
   });
 
   it('Should render FooterSectionLinks component and make it visible to the user', () => {
-    render(<FooterSectionLinks />);
-
     const footerSectionLinksComponent = screen.getByTestId('footer-section-links');
 
     expect(footerSectionLinksComponent).toBeVisible();
@@ -32,8 +32,6 @@
     }));
 
     it('Should render all of the IDs', () => {
-      render(<FooterSectionLinks />);
-    
       const IDValues = Object.values(IDs);
 
       IDValues.forEach(ID => {
@@ -42,9 +40,6 @@
     });
 
     it('Should render all of the IDs and make them visible to the user', () => {
-
-      render(<FooterSectionLinks/>);
-
       const IDValues = Object.values(IDs);
 
       IDValues.forEach(ID => {

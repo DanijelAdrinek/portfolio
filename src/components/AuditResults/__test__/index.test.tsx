@@ -4,17 +4,17 @@ import AuditResults from '..';
 import { IDs } from '@/constants';
 import { LIGHTHOUSE_DATA } from '@/data';
 
-it("Should render AuditResults to DOM", () => {
-    render(<AuditResults />);
+beforeEach(() => {
+  render(<AuditResults />);
+});
 
+it("Should render AuditResults to DOM", () => {
     const AuditResultsComponent = document.getElementById(IDs.statistics);
 
     expect(AuditResultsComponent).toBeDefined();
 });
 
 it("Should make AuditResults visible to user", () => {
-    render(<AuditResults />);
-
     const AuditResultsComponent = document.getElementById(IDs.statistics);
 
     expect(AuditResultsComponent).toBeVisible();
@@ -32,8 +32,6 @@ describe('LIGHTHOUSE_DATA', () => {
   }));
 
   it('renders all statistics from LIGHTHOUSE_DATA', () => {
-    render(<AuditResults />);
-
     LIGHTHOUSE_DATA.forEach(score => {
       expect(screen.getByText(score.title)).toBeInTheDocument();
       expect(screen.getByText(score.percentage.toString())).toBeInTheDocument();
@@ -42,8 +40,6 @@ describe('LIGHTHOUSE_DATA', () => {
   });
 
   it('Renders statistics from LIGHTHOUSE_DATA and makes sure they are visible', () => {
-    render(<AuditResults />);
-
     LIGHTHOUSE_DATA.forEach(score => {
       expect(screen.getByText(score.title)).toBeVisible();
       expect(screen.getByText(score.percentage.toString())).toBeVisible();

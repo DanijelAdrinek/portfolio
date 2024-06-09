@@ -6,7 +6,7 @@ import FooterInfo from './FooterInfo';
 
 function Footer() {
     return (
-        <footer className={`section ${Styles.footer}`}>
+        <footer className={`section ${Styles.footer}`} data-testid='footer'>
             <FooterInfo/>
             <FooterSocials/>
             <FooterSectionLinks/>
